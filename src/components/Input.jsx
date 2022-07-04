@@ -17,7 +17,6 @@ export const Input = ({ id, label, inputProps, errorData, setErrorData }) => {
     const inputRef = useRef(null)
     const dispatch = useDispatch()
     const selector = useSelector((state) => state)
-    console.log(selector['confirmPw'])
 
     const checkRex = (inputId) => {
         let result
@@ -68,6 +67,7 @@ export const Input = ({ id, label, inputProps, errorData, setErrorData }) => {
                         ? ''
                         : 'border-red-600'
                 }`}
+                value={selector[id]}
                 ref={inputRef}
                 onChange={(e) => dispatch(setInputValue(id, e.target.value))}
                 {...inputProps}

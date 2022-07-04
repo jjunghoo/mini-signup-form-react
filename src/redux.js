@@ -5,7 +5,6 @@ const initialFormData = {
 }
 
 export const setInputValue = (id, value) => {
-    // console.log(id, value)
     return {
         type: id,
         payload: value,

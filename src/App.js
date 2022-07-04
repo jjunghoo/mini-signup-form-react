@@ -1,3 +1,4 @@
+import { useRef } from 'react'
 import { Provider } from 'react-redux'
 import { legacy_createStore as createStore } from 'redux'
 import './App.css'
@@ -10,14 +11,15 @@ import { reducer } from './redux'
 const store = createStore(reducer)
 
 function App() {
+    const modalRef = useRef(null)
     return (
         <Provider store={store}>
             <section className="form-wrapper">
-                <Form />
+                <Form modalRef={modalRef} />
                 <Footer />
             </section>
             <FontControlBox />
-            <Modal />
+            <Modal ref={modalRef} />
         </Provider>
     )
 }
